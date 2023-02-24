@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 
 import 'model.dart';
 
-Future<List<Map<String, dynamic>>> getVideos(PaginationModel pagination) async {
+Future<List<Map<String, dynamic>>> getAirPlane(
+  PaginationModel pagination,
+) async {
   int size = 20;
 
   final String url =

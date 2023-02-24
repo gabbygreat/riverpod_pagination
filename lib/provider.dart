@@ -4,4 +4,4 @@ import 'model.dart';
 import 'network.dart';
 
 final videoListProvider = FutureProvider.autoDispose
-    .family((_, PaginationModel pagination) => getVideos(pagination));
+    .family((_, PaginationModel pagination) => getAirPlane(pagination));

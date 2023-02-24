@@ -86,7 +86,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
               final listOfAirPlane =
                   value.map((e) => AirPlaneModel.fromJson(e)).toList();
               return ListTile(
-                title: Text(listOfAirPlane[index].airlineModel.country),
+                title: Text(listOfAirPlane[index].name),
                 subtitle: Text(listOfAirPlane[index].airlineModel.slogan),
                 leading: CircleAvatar(
                   child: Image.network(

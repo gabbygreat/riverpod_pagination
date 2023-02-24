@@ -24,11 +24,14 @@ class AirlineModel {
 
 class AirPlaneModel {
   final String id;
+  final String name;
   final AirlineModel airlineModel;
-  AirPlaneModel({required this.airlineModel, required this.id});
+  AirPlaneModel(
+      {required this.airlineModel, required this.id, required this.name});
 
   static AirPlaneModel fromJson(Map<String, dynamic> data) => AirPlaneModel(
         id: data['_id'],
+        name: data['name'],
         airlineModel: AirlineModel.fromJson(data['airline'][0]),
       );
 }

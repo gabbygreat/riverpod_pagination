@@ -60,7 +60,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
           reverse: true,
           controller: refreshController,
           enablePullUp: true,
-          enablePullDown: true,
+          enablePullDown: false,
           onRefresh: () async {
             value.clear();
             paginationModel.page = 0;

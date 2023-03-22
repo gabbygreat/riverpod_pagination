@@ -44,8 +44,8 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final video = ref.watch(
-      videoListProvider(
+    final airplaneList = ref.watch(
+      airplaneListProvider(
         paginationModel,
       ),
     );
@@ -55,16 +55,18 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: const Text('Pagination using Riverpod'),
       ),
-      body: video.when(
+      body: airplaneList.when(
         data: (value) => SmartRefresher(
+          reverse: true,
           controller: refreshController,
           enablePullUp: true,
+          enablePullDown: true,
           onRefresh: () async {
             value.clear();
             paginationModel.page = 0;
             paginationModel.total = 100;
             var _ =
-                await ref.refresh(videoListProvider(paginationModel).future);
+                await ref.refresh(airplaneListProvider(paginationModel).future);
             refreshController.refreshCompleted();
           },
           onLoading: () async {
@@ -86,7 +88,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
               final listOfAirPlane =
                   value.map((e) => AirPlaneModel.fromJson(e)).toList();
               return ListTile(
-                title: Text(listOfAirPlane[index].name),
+                title: Text('$index ${listOfAirPlane[index].name}'),
                 subtitle: Text(listOfAirPlane[index].airlineModel.slogan),
                 leading: CircleAvatar(
                   child: Image.network(

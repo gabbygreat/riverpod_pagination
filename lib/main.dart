@@ -61,6 +61,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
           controller: refreshController,
           enablePullUp: true,
           enablePullDown: false,
+          physics: const ClampingScrollPhysics(),
           onRefresh: () async {
             value.clear();
             paginationModel.page = 0;

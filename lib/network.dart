@@ -5,7 +5,7 @@ import 'model.dart';
 Future<List<Map<String, dynamic>>> getAirPlane(
   PaginationModel pagination,
 ) async {
-  int size = 20;
+  int size = 50;
 
   final String url =
       'https://api.instantwebtools.net/v1/passenger?page=${pagination.page}&size=$size';
